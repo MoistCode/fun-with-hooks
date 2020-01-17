@@ -15,7 +15,7 @@ const SongList = () => {
 
   return (
     <div className="song-list">
-      <NewSongForm onSubmit={addSong} />
+      <NewSongForm addSong={addSong} />
       <ul>
         {songs.map(song => {
           return <li key={song.id}>{song.title}</li>;
