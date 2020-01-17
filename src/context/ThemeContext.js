@@ -27,7 +27,7 @@ export default class ThemeContextProvider extends Component {
           toggleTheme: this.toggleTheme,
           ...this.state,
         }}>
-        {this.props.children}
+        { this.props.children }
       </ThemeContext.Provider>
     )
   }
