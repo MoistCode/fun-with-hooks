@@ -3,7 +3,6 @@ import { ThemeContext } from "../context/ThemeContext";
 import { AuthContext } from "../context/AuthContext";
 
 const NavBar = () => {
-
   const { isAuthenticated, toggleAuth } = useContext(AuthContext);
   const { isLightTheme, light, dark } = useContext(ThemeContext);
   const theme = isLightTheme ? light : dark;
