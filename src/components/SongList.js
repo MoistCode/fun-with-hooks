@@ -9,13 +9,19 @@ const SongList = () => {
     { title: "The Wild Darkness", id: uuid() }
   ]);
 
+  const [age, setAge] = useState(20);
+
   const addSong = title => {
     setSongs([...songs, { title, id: uuid() }]);
   };
 
   useEffect(() => {
-    
-  });
+    console.log('only run this when songs are changed');
+  }, [songs]);
+
+  useEffect(() => {
+    console.log('only run this when age is changed');
+  }, [age]);
 
   return (
     <div className="song-list">
@@ -25,6 +31,7 @@ const SongList = () => {
           return <li key={song.id}>{song.title}</li>;
         })}
       </ul>
+    <button onClick={() => setAge(age + 1)}>Add one to age: {age}</button>
     </div>
   );
 };
