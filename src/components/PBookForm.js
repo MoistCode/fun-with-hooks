@@ -1,15 +1,22 @@
 import React, { useContext, useState } from "react";
 import { PBookContext } from "../context/PBookContext";
+import { ADD_BOOK } from "../reducers/PBookReducer";
 
 const PBookForm = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
 
-  const { addBook } = useContext(PBookContext);
+  const { dispatch } = useContext(PBookContext);
 
   const handleAddBook = e => {
     e.preventDefault();
-    addBook(title, author)
+    dispatch({
+      type: ADD_BOOK,
+      book: {
+        title,
+        author,
+      }
+    });
   }
 
   return (

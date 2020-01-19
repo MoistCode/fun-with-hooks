@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { PBookContext } from '../context/PBookContext';
+import { REMOVE_BOOK } from '../reducers/PBookReducer';
 
 const PBookDetails = ({book}) => {
-  const { removeBook } = useContext(PBookContext);
+  const { dispatch } = useContext(PBookContext);
 
   const { title, author, id } = book;
 
@@ -10,7 +11,7 @@ const PBookDetails = ({book}) => {
     <li >
       <div className="title">{title}</div>
       <div className="author">{author}</div>
-      <button onClick={() => removeBook(id)}>Remove {title}</button>
+      <button onClick={() => dispatch({type: REMOVE_BOOK, id })}>Remove {title}</button>
     </li>
   )
 };
